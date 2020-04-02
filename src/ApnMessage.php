@@ -78,6 +78,27 @@ class ApnMessage
     public $client = null;
 
     /**
+     * Enable Critical Alert.
+     *
+     * @var int|null
+     */
+    public $criticalEnabled;
+
+    /**
+     * Critical Alert Sound Volume.
+     *
+     * @var float|null
+     */
+    public $criticalVolume;
+
+    /**
+     * Critical Alert Soundfile Name.
+     *
+     * @var string|null
+     */
+    public $criticalName;
+
+    /**
      * The notification service app extension flag.
      *
      * @var int|null
@@ -248,6 +269,49 @@ class ApnMessage
     public function setCustom($custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+
+     /**
+     * Enable Critical notifications.
+     *
+     * @param int|null $criticalEnabled
+     *
+     * @return $this
+     */
+    public function criticalEnabled($criticalEnabled = 0)
+    {
+        $this->criticalEnabled = $criticalEnabled;
+
+        return $this;
+    }
+
+    /**
+     * Critical notifications sound volume.
+     *
+     * @param float|null $criticalVolume
+     *
+     * @return $this
+     */
+    public function criticalVolume($criticalVolume = 1.0)
+    {
+        $this->criticalVolume = $criticalVolume;
+
+        return $this;
+    }
+
+    /**
+     * Critical notifications sound file.
+     *
+     * @param string|null $criticalName
+     *
+     * @return $this
+     */
+    public function criticalName($criticalName = "default")
+    {
+        $this->criticalName = $criticalName;
 
         return $this;
     }
